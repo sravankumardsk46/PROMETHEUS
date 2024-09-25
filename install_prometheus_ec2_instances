@@ -27,19 +27,19 @@ pwd  /home/prometheus
 do to google
 https://prometheus.io/download/
 # select linux copy link
-https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz
+https://github.com/prometheus/prometheus/releases/download/v3.0.0-beta.0/prometheus-3.0.0-beta.0.linux-amd64.tar.gz
 --------------------------------------------------------------------------------------------------------------------
-sudo wget https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz
+sudo wget https://github.com/prometheus/prometheus/releases/download/v3.0.0-beta.0/prometheus-3.0.0-beta.0.linux-amd64.tar.gz
 --------------------------------------------------------------------------------------------------------------------
-ls -l  # red prometheus-2.54.1.linux-amd64.tar.gz
+ls -l  # red prometheus-3.0.0-beta.0.linux-amd64.tar.gz
 # extrackpackege
-sudo tar -xvzf prometheus-2.54.1.linux-amd64.tar.gz
-ls -l  #blue need and red remove rm -rf prometheus-2.54.1.linux-amd64.tar.gz
+sudo tar -xvzf prometheus-3.0.0-beta.0.linux-amd64.tar.gz
+ls -l  #blue need and red remove rm -rf prometheus-3.0.0-beta.0.linux-amd64.tar.gz
 ############
 gonto port 9090 in sg
 ##########
 pwd  /home/prometheus
-cd prometheus-2.54.1.linux-amd64
+cd prometheus-3.0.0-beta.0.linux-amd64
 ls -l
 # default prometheus.yaml file 
 cat prometheus.yaml
@@ -71,8 +71,8 @@ After=network-online.target
 User=root
 Type=simple
 Restart=on-failure
-ExecStart=/home/prometheus/prometheus-2.54.1.linux-amd64/prometheus.yml \
-  --config.file=/home/prometheus/prometheus-2.54.1.linux-amd64/prometheus.yml \
+ExecStart=/home/prometheus/prometheus-3.0.0-beta.0.linux-amd64/prometheus \
+  --config.file=/home/prometheus/prometheus-3.0.0-beta.0.linux-amd64/prometheus.yml \
  
 [Install]
 WantedBy=multi-user.target
@@ -83,7 +83,7 @@ sudo systemctl start prometheus
 sudo systemctl status prometheus
 
 sudo ps -ef|grep prometheus
-cd prometheus-2.54.1.linux-amd64
+cd prometheus-3.0.0-beta.0.linux-amd64
 # to start promitheus
 ./prometheus check config prometheus.yaml
 ip:9090/graph
