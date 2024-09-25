@@ -28,10 +28,12 @@ do to google
 https://prometheus.io/download/
 # select linux copy link
 https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz
+--------------------------------------------------------------------------------------------------------------------
 sudo wget https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz
+--------------------------------------------------------------------------------------------------------------------
 ls -l  # red prometheus-2.54.1.linux-amd64.tar.gz
 # extrackpackege
-sudo -xvzf prometheus-2.54.1.linux-amd64.tar.gz
+sudo tar -xvzf prometheus-2.54.1.linux-amd64.tar.gz
 ls -l  #blue need and red remove rm -rf prometheus-2.54.1.linux-amd64.tar.gz
 ############
 gonto port 9090 in sg
@@ -47,14 +49,14 @@ cat prometheus.yaml
      default target port 9090
 #################################
 #to start prometehesus
-./prometheus --config.file=prometheus.yaml
+./prometheus --config.file=prometheus.yml
 #########
 copy ip :9090
 dash bord prometheus
 target   endpont  state  lable 
-qip:9090/metric
+http://54.165.75.114:9090/metrics
 -----------------------------
-ctrl + c to stop propetheus 
+ctrl + c to stop propetheus   # not working 
 -------------------------------
 relode not work dash bord metric page becuse is stoped
 _________________________________
