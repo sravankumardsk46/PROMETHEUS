@@ -85,7 +85,8 @@ sudo systemctl status prometheus
 sudo ps -ef|grep prometheus
 cd prometheus-3.0.0-beta.0.linux-amd64
 # to start promitheus
-./prometheus check config prometheus.yaml
+                                                                [ ./prometheus check config prometheus.yaml  ]  # it not working
+./promtool check config prometheus.yml | awk 'NF' | sed 1d     # SUCCESS: prometheus.yml is valid prometheus config file syntax
 ip:9090/graph
 alert
 ################################  ok ###
