@@ -1,1 +1,40 @@
+to create instance
+linux 2 ami
+t2.micro
+key
+vpc default
+create
+###################
+connect ec2
+sudo su 
+useradd prometheus
+passwd prometheus   # 3 time same
+visudo
+%wheel ALL=(ALL)    ALL   # this is alredy have
+PROMETHEOS ALL=(ALL)    ALL    # just add this
+
+PROMETHEOS ALL=(ALL)   NOPASSWD:ALL   # just add this
+:wq!
+#################
+# go to user
+sudo su - prometheus
+id
+whomai
+pwd  /home/prometheus
+################
+do to google
+https://prometheus.io/download/
+# select linux copy link
+https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz
+sudo wget https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz
+ls -l  # red prometheus-2.54.1.linux-amd64.tar.gz
+# extrackpackege
+sudo -xvzf prometheus-2.54.1.linux-amd64.tar.gz
+ls -l  # red remove rm -rf prometheus-2.54.1.linux-amd64.tar.gz
+############
+gonto port 9090 in sg
+##########
+
+
+
 
