@@ -30,10 +30,67 @@ sudo wget https://github.com/prometheus/prometheus/releases/download/v2.54.1/pro
 ls -l  # red prometheus-2.54.1.linux-amd64.tar.gz
 # extrackpackege
 sudo -xvzf prometheus-2.54.1.linux-amd64.tar.gz
-ls -l  # red remove rm -rf prometheus-2.54.1.linux-amd64.tar.gz
+ls -l  #blue need and red remove rm -rf prometheus-2.54.1.linux-amd64.tar.gz
 ############
 gonto port 9090 in sg
 ##########
+pwd  /home/prometheus
+cd prometheus-2.54.1.linux-amd64
+ls -l
+# default prometheus.yaml file 
+cat prometheus.yaml
+    screpe intervel 15 s
+     alertmenegement configuration :909
+     screp confige 
+     default target port 9090
+#################################
+#to start prometehesus
+./prometheus --config.file=prometheus.yaml
+#########
+copy ip :9090
+dash bord prometheus
+target   endpont  state  lable 
+qip:9090/metric
+-----------------------------
+ctrl + c to stop propetheus 
+-------------------------------
+relode not work dash bord metric page becuse is stoped
+_________________________________
+To create service file
+sudo vi /etc/systemd/system/prometheus.service
+[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=root
+Type=simple
+Restart=on-failure
+ExecStart=/home/prometheus/prometheus-2.54.1.linux-amd64/prometheus.yml \
+  --config.file=/home/prometheus/prometheus-2.54.1.linux-amd64/prometheus.yml \
+ 
+[Install]
+WantedBy=multi-user.target
+:wq!
+####################################
+sudo systemctl daemon-reload
+sudo systemctl start prometheus
+sudo systemctl status prometheus
+
+sudo ps -ef|grep prometheus
+cd prometheus-2.54.1.linux-amd64
+# to start promitheus
+./prometheus check config prometheus.yaml
+ip:9090/graph
+alert
+################################  ok ###
+
+
+
+
+
+
 
 
 
